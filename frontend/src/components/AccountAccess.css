@@ -1,0 +1,108 @@
+.eh-account-access, .eh-account-key { color:#2d2d2d; font-family:'Syne',sans-serif; }
+.eh-account-access form { display:grid; gap:12px; }
+.eh-account-access h3,.eh-account-key h3 { font-size:24px; margin:14px 0; line-height:1.2; }
+.eh-account-access label { display:grid; gap:6px; font-size:14px; font-weight:600; }
+.eh-account-access input,.eh-account-key textarea { box-sizing:border-box; width:100%; min-height:44px; border:1px solid #858585; border-radius:0; padding:10px 12px; color:#2d2d2d; background:#f5f5f5; font:16px sans-serif; }
+.eh-account-access small,.eh-account-key p { font:12px/1.6 'DM Mono',monospace; color:#575757; }
+.eh-account-access button,.eh-account-key button { cursor:pointer; font:600 14px 'Syne',sans-serif; min-height:44px; padding:10px 14px; }
+.eh-account-primary { border:1px solid #2d2d2d; color:#2d2d2d; background:#1db954; width:100%; }
+.eh-account-tabs { display:flex; gap:8px; border-bottom:1px solid #b6b6b6; padding-bottom:10px; }
+.eh-account-tabs button,.eh-account-link { border:0; background:transparent; color:#2d2d2d; }
+.eh-account-tabs [aria-pressed='true'] { border-bottom:3px solid #1db954; }
+.eh-account-access :focus-visible,.eh-account-key :focus-visible { outline:2px solid #2d2d2d; outline-offset:3px; }
+.eh-account-access button:disabled,.eh-account-key button:disabled { opacity:.6; cursor:default; }
+.eh-account-check { display:flex; gap:10px; align-items:flex-start; margin:16px 0; font-size:14px; line-height:1.5; }
+.eh-account-check input { width:20px; height:20px; flex-shrink:0; }
+.eh-account-key textarea { min-height:90px; overflow-wrap:anywhere; resize:vertical; font-family:monospace; }
+.eh-account-key { padding-block:12px; }
+.eh-account-page { min-height:80vh; background:#e9e9e9; color:#2d2d2d; padding-bottom:60px; }
+.eh-account-main { max-width:640px; margin:48px auto; padding:0 24px; }
+.eh-account-main h1 { font:700 clamp(32px,5vw,48px) 'Syne',sans-serif; color:#2d2d2d; letter-spacing:-.04em; }
+.eh-account-main section { margin-top:32px; padding-top:24px; border-top:1px solid #b6b6b6; }
+.eh-account-main p { line-height:1.6; margin-block:12px; }
+.eh-account-main button { min-height:44px; cursor:pointer; }
+.eh-account-main a { color:inherit; text-decoration:underline; }
+.eh-login .eh-login__panel { gap:20px; }
+.eh-login .eh-login__welcome h2 { font-size:clamp(28px,3vw,40px); }
+.eh-login .eh-login__welcome p { margin-top:12px; }
+.eh-login .eh-login__connection { margin-block:12px; }
+.eh-catalog-provider { margin:20px 0; display:flex; flex-wrap:wrap; gap:12px; align-items:center; }
+.eh-catalog-provider select { padding:10px; border:1px solid #858585; font:inherit; color:#2d2d2d; background:#e9e9e9; }
+.eh-catalog-attribution { font:12px/1.6 'DM Mono',monospace; margin-block:16px; color:inherit; }
+.eh-catalog-attribution a { color:inherit; text-decoration:underline; }
+.eh-catalog-pages { display:flex; gap:16px; justify-content:center; margin:24px 0; }
+.eh-catalog-pages button { min-height:44px; padding:8px 16px; cursor:pointer; }
+.eh-lastfm-guide {
+  max-width: 38rem;
+  margin: 12px 0 18px;
+  color: #2d2d2d;
+  border-block: 1px solid #b6b6b6;
+}
+
+.eh-lastfm-guide summary {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  min-height: 44px;
+  cursor: pointer;
+  list-style: none;
+  font-weight: 600;
+}
+
+.eh-lastfm-guide summary::-webkit-details-marker {
+  display: none;
+}
+
+.eh-lastfm-guide__arrow {
+  color: #575757;
+  font-size: 18px;
+  line-height: 1;
+}
+
+.eh-lastfm-guide[open] .eh-lastfm-guide__arrow {
+  transform: rotate(180deg);
+}
+
+.eh-lastfm-guide__body {
+  padding: 0 0 16px;
+}
+
+.eh-lastfm-guide__body ol {
+  margin: 0 0 16px;
+  padding-left: 1.5rem;
+  font-size: 14px;
+  line-height: 1.55;
+}
+
+.eh-lastfm-guide__body li + li {
+  margin-top: 6px;
+}
+
+.eh-lastfm-guide__body li::marker {
+  font-family: 'DM Mono', monospace;
+  color: #575757;
+}
+
+.eh-lastfm-guide .eh-lastfm-guide__link {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  min-height: 40px;
+  padding: 0 14px;
+  border-radius: 6px;
+  background: #2d2d2d;
+  color: #e9e9e9;
+  font-size: 14px;
+  text-decoration: none;
+}
+
+.eh-lastfm-guide__link span {
+  color: #1ed760;
+}
+
+.eh-lastfm-guide summary:focus-visible,
+.eh-lastfm-guide__link:focus-visible {
+  outline: 2px solid #2d2d2d;
+  outline-offset: 3px;
+}

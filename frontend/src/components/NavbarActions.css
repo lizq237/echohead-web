@@ -1,0 +1,134 @@
+.eh-nav .eh-nav__actions .eh-nav-action {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex: 0 0 40px;
+
+  width: 40px;
+  height: 40px;
+  min-height: 40px;
+  padding: 0;
+
+  color: #575757;
+  background: transparent;
+  border: 1px solid transparent;
+  border-radius: 12px;
+  box-shadow: none;
+  text-decoration: none;
+  cursor: pointer;
+
+  transition:
+    background-color 160ms ease,
+    border-color 160ms ease,
+    color 160ms ease;
+}
+
+.eh-nav .eh-nav__actions .eh-nav-action svg {
+  width: 19px;
+  height: 19px;
+  stroke-width: 1.7;
+}
+
+@media (hover: hover) {
+  .eh-nav .eh-nav__actions .eh-nav-action:hover {
+    color: #2d2d2d;
+    background: #dedede;
+    border-color: #c9c9c9;
+  }
+}
+
+.eh-nav .eh-nav__actions .eh-nav-action:focus-visible {
+  color: #2d2d2d;
+  background: #dedede;
+  outline: 2px solid #2d2d2d;
+  outline-offset: 3px;
+}
+
+.eh-nav .eh-nav__actions .eh-nav-action:active {
+  background: #d2d2d2;
+}
+
+.eh-nav .eh-nav__actions .eh-nav-action:disabled {
+  opacity: 0.5;
+  cursor: wait;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .eh-nav .eh-nav__actions .eh-nav-action {
+    transition: none;
+  }
+}
+
+@media (max-width: 760px) {
+  /* Botón junto al logo */
+  .eh-nav .eh-nav__menu-toggle {
+    min-height: 44px;
+    padding: 0 16px;
+    border: 1px solid #b6b6b6;
+    border-radius: 22px;
+    color: #2d2d2d;
+    background: transparent;
+    font: inherit;
+    font-size: 14px;
+    font-weight: 600;
+  }
+
+  .eh-nav .eh-nav__menu-toggle[aria-expanded='true'] {
+    color: #fff;
+    background: #2d2d2d;
+    border-color: #2d2d2d;
+    text-decoration: none;
+  }
+
+  /* Panel que se abre debajo de Inicio, Álbumes y Canciones */
+  .eh-nav .eh-nav__actions.eh-nav__actions--abiertas {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 2px;
+    margin: 8px 0 12px;
+    padding: 6px;
+    border: 1px solid #ccc;
+    border-radius: 14px;
+    background: #f4f4f4;
+  }
+
+  /* Una fila completa por acción, también para la tuerca y salir */
+  .eh-nav .eh-nav__actions--abiertas > :is(a, button)[aria-label] {
+    display: grid;
+    grid-template-columns: 28px minmax(0, 1fr);
+    align-items: center;
+    justify-items: start;
+    gap: 12px;
+    width: 100%;
+    height: auto;
+    min-height: 46px;
+    padding: 8px 12px;
+    box-sizing: border-box;
+    border: 0;
+    border-radius: 8px;
+    background: transparent;
+    color: #2d2d2d;
+    text-align: left;
+  }
+
+  .eh-nav .eh-nav__actions--abiertas > :is(a, button)::after {
+    content: attr(aria-label);
+    font-size: 14px;
+    line-height: 1.3;
+    overflow-wrap: anywhere;
+  }
+
+  .eh-nav .eh-nav__actions--abiertas svg {
+    justify-self: center;
+    width: 20px;
+    height: 20px;
+  }
+
+  .eh-nav .eh-nav__actions--abiertas .eh-nav__avatar {
+    width: 28px;
+    height: 28px;
+  }
+
+  .eh-nav .eh-nav__actions--abiertas > :is(a, button):active {
+    background: #e3e3e3;
+  }
+}

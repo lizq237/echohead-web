@@ -1,0 +1,997 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Inter:wght@400;500;600;700&family=Syne:wght@500;600;700;800&display=swap');
+
+/* Base */
+
+.ep-profile {
+  min-height: 100svh;
+  background: #e9e9e9;
+  color: #2d2d2d;
+  font-family: 'Inter', sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+.ep-profile *,
+.ep-profile *::before,
+.ep-profile *::after {
+  box-sizing: border-box;
+}
+
+.ep-main {
+  width: 100%;
+  max-width: 1320px;
+  margin: 0 auto;
+  padding: 40px 48px 56px;
+}
+
+.ep-profile button,
+.ep-profile input,
+.ep-profile textarea {
+  font-family: 'Inter', sans-serif;
+}
+
+.ep-profile button {
+  cursor: pointer;
+}
+
+.ep-profile button:disabled {
+  opacity: .5;
+  cursor: default;
+}
+
+.ep-profile :is(button, a, input, textarea):focus-visible {
+  outline: 2px solid #16883f;
+  outline-offset: 4px;
+}
+
+/* Encabezado */
+
+.ep-header {
+  display: grid;
+  grid-template-columns: 108px minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 28px;
+  padding: 4px 0 32px;
+}
+
+.ep-avatar {
+  display: block;
+  width: 108px;
+  height: 108px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.ep-identity {
+  min-width: 0;
+}
+
+.ep-identity h1 {
+  margin: 0;
+  font: 800 clamp(30px, 4vw, 44px) / 1.1 'Syne', sans-serif;
+  letter-spacing: -.045em;
+  overflow-wrap: anywhere;
+}
+
+.ep-description {
+  max-width: 620px;
+  margin: 12px 0 0;
+  color: #575757;
+  font-size: 14px;
+  line-height: 1.7;
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+}
+
+.ep-stats {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 12px;
+  margin: 18px 0 0;
+  color: #575757;
+  font-size: 12px;
+}
+
+.ep-stats strong {
+  color: #2d2d2d;
+  font: 500 13px 'DM Mono', monospace;
+}
+
+.ep-header-actions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  gap: 10px;
+}
+
+/* Botones */
+
+.ep-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  min-height: 42px;
+  padding: 10px 16px;
+  border: 1px solid #858585;
+  border-radius: 5px;
+  background: transparent;
+  color: #2d2d2d;
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 1.4;
+}
+
+.ep-button svg {
+  flex-shrink: 0;
+  width: 16px;
+  height: 16px;
+}
+
+.ep-button:hover:not(:disabled) {
+  background: #dedede;
+}
+
+.ep-button--green {
+  border-color: #1db954;
+  background: #1db954;
+  color: #14241a;
+}
+
+.ep-button--green:hover:not(:disabled) {
+  background: #25cd65;
+}
+
+/* Edición y mensajes */
+
+.ep-description-label {
+  display: block;
+  margin-top: 14px;
+  font-size: 12px;
+  color: #575757;
+}
+
+.ep-description-input {
+  display: block;
+  width: 100%;
+  margin-top: 8px;
+  padding: 12px;
+  resize: vertical;
+  border: 1px solid #858585;
+  border-radius: 4px;
+  background: #f3f3f3;
+  color: #2d2d2d;
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+.ep-notice {
+  margin: 0 0 20px;
+  padding: 16px;
+  border-left: 2px solid #858585;
+  background: #f3f3f3;
+  color: #575757;
+  font-size: 13px;
+  line-height: 1.7;
+  overflow-wrap: anywhere;
+}
+
+.ep-notice p {
+  margin: 0 0 12px;
+}
+
+.ep-edit-note {
+  margin: -8px 0 28px;
+  color: #575757;
+  font-size: 13px;
+  line-height: 1.7;
+}
+
+/* Pestañas */
+
+.ep-tabs {
+  display: flex;
+  align-items: stretch;
+  gap: 32px;
+  max-width: 100%;
+  overflow-x: auto;
+  scrollbar-width: thin;
+  border-bottom: 1px solid #b6b6b6;
+  margin-bottom: 32px;
+}
+
+.ep-tabs button {
+  flex-shrink: 0;
+  padding: 16px 2px;
+  border: 0;
+  border-bottom: 3px solid transparent;
+  background: transparent;
+  color: #575757;
+  font-size: 13px;
+}
+
+.ep-tabs button[aria-current='page'] {
+  color: #2d2d2d;
+  border-bottom-color: #1db954;
+  font-weight: 700;
+}
+
+/* Encabezados de sección */
+
+.ep-section-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  margin-bottom: 28px;
+}
+
+.ep-section-head h2 {
+  margin: 0;
+  font: 700 clamp(25px, 3vw, 32px) / 1.2 'Syne', sans-serif;
+  letter-spacing: -.04em;
+  overflow-wrap: anywhere;
+}
+
+.ep-section-head > .ep-button {
+  flex-shrink: 0;
+}
+
+/* Favoritos */
+
+.ep-favorites {
+  background: #e9e9e9;
+}
+
+.ep-favorite-section {
+  margin-bottom: 32px;
+}
+
+.ep-row-heading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  margin-bottom: 16px;
+}
+
+.ep-row-heading h3 {
+  margin: 0;
+  font: 700 18px / 1.3 'Syne', sans-serif;
+  letter-spacing: -.025em;
+}
+
+.ep-row-heading > span {
+  color: #575757;
+  font: 11px 'DM Mono', monospace;
+}
+
+.ep-favorite-grid {
+  display: grid;
+  grid-template-columns:
+    repeat(var(--ep-columns, 5), minmax(0, 1fr));
+  align-items: start;
+  gap: 24px;
+}
+
+.ep-favorite {
+  position: relative;
+  min-width: 0;
+  text-align: center;
+}
+
+.ep-artist-image {
+  display: block;
+  width: 100%;
+  aspect-ratio: 1;
+  border-radius: 20%;
+  object-fit: cover;
+}
+
+.ep-favorite .eh-card .tarjeta-contenedor {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 1;
+  box-shadow: none;
+}
+
+.ep-favorite .eh-card .forma-cuadrado {
+  border-radius: 0;
+}
+
+.ep-favorite .eh-card .forma-circulo {
+  border-radius: 50%;
+}
+
+.ep-favorite .eh-card .tarjeta-imagen {
+  width: 100%;
+  height: 100%;
+}
+
+.ep-favorite h4 {
+  margin: 12px 0 0;
+  color: #2d2d2d;
+  font-size: 13px;
+  font-weight: 600;
+  line-height: 1.5;
+  overflow-wrap: anywhere;
+}
+
+.ep-favorite > p {
+  margin: 4px 0 0;
+  color: #575757;
+  font-size: 12px;
+  line-height: 1.5;
+  overflow-wrap: anywhere;
+}
+
+.ep-empty {
+  margin: 0;
+  padding: 24px;
+  border: 1px dashed #b6b6b6;
+  color: #575757;
+  font-size: 13px;
+  line-height: 1.7;
+}
+
+/* Agregar y quitar favoritos */
+
+.ep-remove {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  z-index: 3;
+  display: grid;
+  place-items: center;
+  width: 34px;
+  height: 34px;
+  padding: 0;
+  border: 1px solid #858585;
+  border-radius: 50%;
+  background: #e9e9e9;
+  color: #2d2d2d;
+}
+
+.ep-remove svg {
+  width: 18px;
+  height: 18px;
+}
+
+.ep-add {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  width: 100%;
+  aspect-ratio: 1;
+  padding: 12px;
+  border: 1px dashed #858585;
+  background: transparent;
+  color: #575757;
+  font-size: 12px;
+}
+
+.ep-add > svg {
+  width: 24px;
+  height: 24px;
+}
+
+.ep-add:hover:not(:disabled) {
+  background: #dedede;
+  border-color: #2d2d2d;
+}
+
+.ep-shape-artist {
+  border-radius: 20%;
+}
+
+.ep-shape-album {
+  border-radius: 0;
+}
+
+.ep-shape-track {
+  border-radius: 50%;
+}
+
+/* Marca visible únicamente en las imágenes exportadas */
+
+.ep-export-brand {
+  display: none;
+  margin: 0 0 24px;
+  font: 700 22px 'Syne', sans-serif;
+}
+
+/* Tu mes en bucle */
+
+.ep-month {
+  margin-top: 40px;
+  padding: 28px;
+  border-radius: 8px;
+  background: #2d2d2d;
+  color: #e9e9e9;
+}
+
+.ep-month .ep-section-head {
+  align-items: flex-start;
+}
+
+.ep-month h2 {
+  font-size: clamp(24px, 2.6vw, 30px);
+}
+
+.ep-dot {
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  margin-left: 6px;
+  border-radius: 50%;
+  background: #1db954;
+  vertical-align: middle;
+}
+
+.ep-month-period {
+  margin: 8px 0 0;
+  color: #b6b6b6;
+  font-size: 11px;
+  line-height: 1.6;
+}
+
+.ep-button--light {
+  border-color: #858585;
+  color: #e9e9e9;
+}
+
+.ep-button--light:hover:not(:disabled) {
+  background: #414141;
+}
+
+.ep-month-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 24px;
+}
+
+.ep-month-grid > div + div {
+  border-left: 1px solid #575757;
+  padding-left: 24px;
+}
+
+.ep-month-grid h3 {
+  margin: 0 0 16px;
+  color: #e9e9e9;
+  font: 400 10px 'DM Mono', monospace;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+}
+
+.ep-month-list {
+  display: grid;
+  gap: 14px;
+}
+
+.ep-month-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  min-width: 0;
+  font-size: 12px;
+  line-height: 1.5;
+}
+
+.ep-month-item img {
+  flex-shrink: 0;
+  width: 46px;
+  height: 46px;
+  object-fit: cover;
+}
+
+.ep-month-item span {
+  overflow-wrap: anywhere;
+}
+
+.ep-month-note,
+.ep-month-empty {
+  color: #b6b6b6;
+  font-size: 11px;
+  line-height: 1.6;
+}
+
+.ep-month-note {
+  margin: 24px 0 0;
+}
+
+/* Compatibilidad con las pestañas existentes */
+
+.ep-tab-content {
+  min-width: 0;
+}
+
+.ep-profile .perfil-biblioteca-contenedor {
+  box-sizing: border-box;
+  max-width: 100%;
+  padding-inline: 0;
+}
+
+.ep-profile .paginacion-contenedor {
+  flex-wrap: wrap;
+}
+
+.ep-profile .switch-favoritos {
+  flex-wrap: wrap;
+}
+
+.ep-profile .switch-favoritos button:hover {
+  color: #2d2d2d;
+}
+
+/* Buscador modal */
+
+.ep-selector {
+  width: min(560px, calc(100% - 32px));
+  max-height: calc(100dvh - 32px);
+  margin: auto;
+  padding: 24px;
+  overflow-y: auto;
+  border: 1px solid #b6b6b6;
+  border-radius: 8px;
+  background: #e9e9e9;
+  color: #2d2d2d;
+  font-family: 'Inter', sans-serif;
+}
+
+.ep-selector::backdrop {
+  background: #17181799;
+}
+
+.ep-selector-heading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  margin-bottom: 20px;
+}
+
+.ep-selector-heading h2 {
+  margin: 0;
+  font: 700 25px 'Syne', sans-serif;
+  letter-spacing: -.035em;
+}
+
+.ep-icon {
+  display: grid;
+  place-items: center;
+  flex-shrink: 0;
+  width: 36px;
+  height: 36px;
+  padding: 0;
+  border: 0;
+  border-radius: 50%;
+  background: transparent;
+  color: #2d2d2d;
+  font-size: 20px;
+}
+
+.ep-search {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.ep-search > svg {
+  flex-shrink: 0;
+}
+
+.ep-search input {
+  min-width: 0;
+  width: 100%;
+  padding: 12px 8px;
+  border: 0;
+  border-bottom: 1px solid #858585;
+  background: transparent;
+  color: #2d2d2d;
+  font-size: 16px;
+}
+
+.ep-search-results {
+  margin-top: 20px;
+  min-height: 100px;
+  font-size: 13px;
+  line-height: 1.6;
+}
+
+.ep-search-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  width: 100%;
+  margin-bottom: 8px;
+  padding: 10px;
+  border: 0;
+  border-radius: 4px;
+  background: #f3f3f3;
+  color: #2d2d2d;
+  text-align: left;
+}
+
+.ep-search-item:hover:not(:disabled) {
+  background: #dedede;
+}
+
+.ep-search-item img {
+  width: 44px;
+  height: 44px;
+  flex-shrink: 0;
+  object-fit: cover;
+}
+
+.ep-search-item > span {
+  min-width: 0;
+  overflow-wrap: anywhere;
+}
+
+.ep-search-item strong {
+  display: block;
+  font-size: 13px;
+}
+
+.ep-search-item small {
+  display: block;
+  margin-top: 4px;
+  color: #575757;
+  font-size: 11px;
+}
+
+.ep-search-action {
+  flex-shrink: 0;
+  margin-left: auto;
+  font-size: 11px;
+}
+
+/* Footer existente */
+
+body:has(.ep-profile) .footer-echohead {
+  margin-top: 0;
+  padding: 28px 24px;
+  background: #e9e9e9;
+  border-top: 1px solid #b6b6b6;
+  font-family: 'Inter', sans-serif;
+}
+
+body:has(.ep-profile) .footer-echohead :is(a, p) {
+  color: #575757;
+  font-size: 12px;
+}
+
+.ep-photo-control {
+  margin-top: 14px;
+  max-width: 440px;
+}
+
+.ep-photo-control__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.ep-photo-control__actions button {
+  min-height: 40px;
+  padding: 9px 14px;
+  border: 1px solid #575757;
+  border-radius: 6px;
+  background: transparent;
+  color: #2d2d2d;
+  font: 500 11px 'DM Mono', monospace;
+  cursor: pointer;
+}
+
+.ep-photo-control__actions button:first-child {
+  background: #1db954;
+  border-color: #2d2d2d;
+}
+
+.ep-photo-control__actions button:hover:not(:disabled) {
+  border-color: #2d2d2d;
+  box-shadow: 0 2px 0 #2d2d2d;
+}
+
+.ep-photo-control__actions button:focus-visible {
+  outline: 2px solid #2d2d2d;
+  outline-offset: 3px;
+}
+
+.ep-photo-control__actions button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.ep-photo-control p {
+  margin: 8px 0 0;
+  font-size: 12px;
+  line-height: 1.5;
+  overflow-wrap: anywhere;
+}
+
+.ep-photo-control__hint {
+  color: #575757;
+}
+
+.ep-photo-control [role='alert'] {
+  color: #2d2d2d;
+  font-weight: 600;
+}
+
+.ep-photo-control [role='status']:empty {
+  display: none;
+}
+
+
+/* Acceso único a los créditos desde el perfil. */
+.ep-credits-access {
+  display: flex;
+  justify-content: flex-end;
+  margin: 0 0 20px;
+}
+
+.ep-credits-access .ep-credits-link {
+  padding: 6px 0;
+  border: 0;
+  background: transparent;
+  color: #575757;
+  font-family: 'DM Mono', monospace;
+  font-size: 11px;
+  line-height: 1.5;
+  text-decoration: underline;
+  text-underline-offset: 4px;
+  cursor: pointer;
+}
+
+.ep-credits-access .ep-credits-link:hover {
+  color: #2d2d2d;
+}
+
+.ep-credits-access .ep-credits-link:focus-visible {
+  outline: 2px solid #2d2d2d;
+  outline-offset: 4px;
+}
+
+.ep-credits-access .ep-credits-link:disabled {
+  opacity: 0.6;
+  cursor: wait;
+}
+
+/* Conservamos los datos para consultar y exportar,
+   pero ya no mostramos un icono por fotografía. */
+.ep-favorites .eh-artist-credit {
+  display: none;
+}
+
+
+.ep-favorite .ep-favorite-cover {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+  border: 0;
+  border-radius: 0;
+  box-shadow: none;
+}
+
+.ep-favorite .ep-favorite-cover--song {
+  border-radius: 50%;
+}
+
+/* Artistas favoritos: esquinas redondeadas. */
+.ep-favorites .eh-artist-frame {
+  position: relative;
+  display: block;
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  overflow: hidden;
+  border-radius: 20%;
+}
+
+
+.ep-favorites .eh-artist-frame img {
+  position: absolute;
+  inset: 0;
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+.ep-month-item > .eh-artist-photo {
+  width: 46px;
+  flex: 0 0 46px;
+}
+
+.ep-month-item .eh-artist-frame {
+  display: grid;
+  place-items: center;
+  width: 46px;
+  height: 46px;
+  overflow: hidden;
+  border-radius: 20%;
+}
+
+.ep-month-item .eh-artist-frame img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.ep-month .eh-artist-credit {
+  display: none;
+}
+
+.ep-month .ep-credits-access {
+  justify-content: flex-start;
+  margin: 6px 0 0;
+}
+
+.ep-month .ep-credits-link {
+  color: #b6b6b6;
+}
+
+.ep-month .ep-credits-link:hover,
+.ep-month .ep-credits-link:focus-visible {
+  color: #e9e9e9;
+}
+
+.ep-month .ep-credits-link:focus-visible {
+  outline-color: #e9e9e9;
+}
+
+.ep-descarga {
+  box-sizing: border-box;
+  width: min(92vw, 480px);
+  max-height: 88dvh;
+  overflow: auto;
+  margin: auto;
+  padding: 18px;
+  border: 1px solid #858585;
+  border-radius: 14px;
+  background: #e9e9e9;
+  color: #2d2d2d;
+}
+
+.ep-descarga::backdrop {
+  background: rgb(0 0 0 / 60%);
+}
+
+.ep-descarga h2 {
+  margin: 0 0 12px;
+  font-family: 'Syne', sans-serif;
+  font-size: 20px;
+}
+
+.ep-descarga img {
+  display: block;
+  width: 100%;
+  height: auto;
+  max-height: 56dvh;
+  object-fit: contain;
+}
+
+.ep-descarga__acciones {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 16px;
+}
+
+
+/* Tablet y móvil */
+
+@media (max-width: 1100px) {
+  .ep-main {
+    padding-inline: 28px;
+  }
+
+  .ep-header {
+    gap: 20px;
+  }
+
+  .ep-favorite-grid {
+    gap: 20px;
+  }
+
+  .ep-tabs {
+    gap: 26px;
+  }
+}
+
+@media (max-width: 800px) {
+  .ep-main {
+    padding: 28px 20px 40px;
+  }
+
+  .ep-header {
+    grid-template-columns: 88px minmax(0, 1fr);
+  }
+
+  .ep-avatar {
+    width: 88px;
+    height: 88px;
+  }
+
+  .ep-header-actions {
+    grid-column: 1 / -1;
+    justify-content: flex-start;
+  }
+
+  .ep-favorite-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 22px 16px;
+  }
+
+  .ep-month-grid {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+
+  .ep-month-grid > div + div {
+    border-left: 0;
+    padding-left: 0;
+    border-top: 1px solid #575757;
+    padding-top: 20px;
+  }
+
+  .ep-month .ep-section-head {
+    flex-direction: column;
+  }
+}
+
+@media (max-width: 540px) {
+  .ep-favorite-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .ep-section-head {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 14px;
+  }
+
+  .ep-favorite h4 {
+    font-size: 12px;
+  }
+
+  .ep-favorite > p {
+    font-size: 11px;
+  }
+
+  .ep-tabs {
+    gap: 24px;
+  }
+
+  .ep-month {
+    padding: 22px;
+  }
+
+  .ep-selector {
+    padding: 20px;
+  }
+
+  .ep-search {
+    gap: 6px;
+  }
+
+  .ep-search .ep-button {
+    padding-inline: 10px;
+  }
+}
+
+@media (max-width: 380px) {
+  .ep-main {
+    padding-inline: 16px;
+  }
+
+  .ep-header {
+    gap: 16px;
+  }
+}

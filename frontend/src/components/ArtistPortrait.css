@@ -1,0 +1,138 @@
+.eh-artist-photo {
+  min-width: 0;
+  color: inherit;
+}
+
+.eh-artist-photo .eh-artist-frame {
+  display: grid;
+  place-items: center;
+  width: 100%;
+  aspect-ratio: 1;
+  overflow: hidden;
+  background: #e9e9e9;
+}
+
+.eh-artist-photo .eh-artist-frame img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+object-position: center;
+  border-radius: 0;
+}
+
+.eh-artist-initials {
+  display: grid;
+  place-items: center;
+  width: 100%;
+  height: 100%;
+  background: #dedede;
+  color: #575757;
+  font: 700 clamp(20px, 4vw, 48px) 'Syne', sans-serif;
+}
+
+.eh-artist-photo--result .ep-search-item {
+  width: 100%;
+}
+
+.eh-artist-photo--result .eh-artist-frame {
+  width: 66px;
+  height: 66px;
+  flex: 0 0 66px;
+}
+
+.eh-artist-photo--result .eh-artist-initials {
+  font-size: 22px;
+}
+
+.eh-artist-photo--result .ep-search-action {
+  flex: 0 0 auto;
+}
+
+.eh-artist-credit {
+  margin: 8px 0 16px;
+  color: #575757;
+  font: 11px/1.5 'DM Mono', monospace;
+  overflow-wrap: anywhere;
+}
+
+.eh-artist-credit summary {
+  cursor: pointer;
+  padding-block: 6px;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.eh-artist-credit p {
+  margin: 6px 0;
+}
+
+.eh-artist-credit a {
+  color: inherit;
+  text-decoration: underline;
+}
+
+.eh-artist-photo :focus-visible {
+  outline: 2px solid #2d2d2d;
+  outline-offset: 3px;
+}
+
+.eh-artist-photo {
+  position: relative;
+}
+
+.eh-artist-photo .eh-artist-credit {
+  position: absolute;
+  right: 8px;
+  bottom: 8px;
+  z-index: 3;
+  margin: 0;
+  text-align: left;
+}
+
+.eh-artist-credit > summary {
+  display: grid;
+  place-items: center;
+  width: 32px;
+  height: 32px;
+  min-height: 0;
+  padding: 0;
+  margin-left: auto;
+  border: 1px solid #575757;
+  border-radius: 50%;
+  background: #e9e9e9;
+  color: #2d2d2d;
+  font: 20px/1 sans-serif;
+  list-style: none;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.eh-artist-credit > summary::-webkit-details-marker {
+  display: none;
+}
+
+.eh-artist-photo .eh-artist-credit[open] {
+  left: 8px;
+  padding: 12px;
+  max-height: calc(100% - 16px);
+  overflow-y: auto;
+  border: 1px solid #858585;
+  border-radius: 8px;
+  background: #e9e9e9;
+  color: #2d2d2d;
+  box-shadow: 0 4px 16px #00000020;
+}
+
+/* En el buscador, los créditos abiertos necesitan más espacio. */
+.eh-artist-photo--result .eh-artist-credit {
+  position: relative;
+  right: auto;
+  bottom: auto;
+  margin-top: 4px;
+}
+
+.eh-artist-photo--result .eh-artist-credit[open] {
+  left: auto;
+  max-height: 220px;
+}

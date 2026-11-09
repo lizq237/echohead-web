@@ -1,0 +1,1300 @@
+/* Mi tocadiscos — estilos aislados de EchoHead */
+
+.ett-studio,
+.ett-share,
+.ett-export {
+  box-sizing: border-box;
+  color: #2d2d2d;
+  background: #e9e9e9;
+  font-family: 'Inter', sans-serif;
+}
+
+.ett-studio *,
+.ett-studio *::before,
+.ett-studio *::after,
+.ett-share * {
+  box-sizing: border-box;
+}
+
+.ett-studio {
+  width: min(1320px, calc(100vw - 40px));
+  max-width: none;
+  max-height: calc(100dvh - 40px);
+  margin: auto;
+  padding: 0;
+  border: 1px solid #b6b6b6;
+  border-radius: 12px;
+  overflow: auto;
+}
+
+.ett-studio::backdrop,
+.ett-share::backdrop {
+  background: #171817a8;
+}
+
+.ett-studio--page {
+  max-height: none;
+  margin: 24px auto;
+}
+
+.ett-studio button,
+.ett-share button {
+  font-family: inherit;
+  cursor: pointer;
+}
+
+.ett-studio button:disabled,
+.ett-share button:disabled {
+  opacity: .5;
+  cursor: default;
+}
+
+.ett-studio :is(button, a, input):focus-visible,
+.ett-share :is(button, a):focus-visible {
+  outline: 3px solid #16883f;
+  outline-offset: 3px;
+}
+
+/* Encabezado */
+
+.ett-topbar {
+  position: sticky;
+  z-index: 10;
+  top: 0;
+  display: flex;
+  align-items: center;
+  gap: 22px;
+  min-height: 72px;
+  padding: 14px 24px;
+  border-bottom: 1px solid #b6b6b6;
+  background: #e9e9e9;
+}
+
+.ett-brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  flex-shrink: 0;
+  color: #2d2d2d;
+}
+
+.ett-brand > svg {
+  width: 29px;
+  height: 29px;
+}
+
+.ett-brand > span {
+  font: 700 25px/1 'Syne', sans-serif;
+  letter-spacing: -.08em;
+}
+
+.ett-brand em {
+  font-weight: 500;
+}
+
+.ett-topbar-label {
+  padding-left: 20px;
+  border-left: 1px solid #858585;
+  font-size: 12px;
+  white-space: nowrap;
+}
+
+.ett-topbar-actions {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-left: auto;
+}
+
+.ett-button,
+.ett-primary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  min-height: 44px;
+  padding: 10px 15px;
+  border: 1px solid #b6b6b6;
+  border-radius: 5px;
+  background: transparent;
+  color: #2d2d2d;
+  font: 12px 'Inter', sans-serif;
+  text-decoration: none;
+}
+
+.ett-button svg,
+.ett-primary svg {
+  width: 17px;
+  height: 17px;
+  flex-shrink: 0;
+}
+
+.ett-button:hover {
+  background: #dedede;
+}
+
+.ett-primary {
+  background: #1db954;
+  border-color: #1db954;
+  color: #14241a;
+  font-weight: 600;
+}
+
+.ett-primary:hover {
+  background: #20c55b;
+}
+
+.ett-icon-button {
+  display: grid;
+  place-items: center;
+  width: 44px;
+  height: 44px;
+  flex-shrink: 0;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  color: #2d2d2d;
+  border-radius: 5px;
+}
+
+.ett-icon-button svg {
+  width: 23px;
+  height: 23px;
+}
+
+.ett-icon-button:hover {
+  background: #dedede;
+}
+
+/* Distribución */
+
+.ett-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 310px;
+}
+
+.ett-layout--solo {
+  grid-template-columns: minmax(0, 1fr);
+}
+
+.ett-preview {
+  width: 100%;
+  min-width: 0;
+  max-width: 1060px;
+  margin: 0 auto;
+  align-self: start;
+  padding: 32px clamp(20px, 3vw, 44px) 28px;
+}
+
+.ett-eyebrow {
+  margin: 0 0 12px;
+  color: #575757;
+  font: 10px 'DM Mono', monospace;
+  letter-spacing: .14em;
+}
+
+.ett-preview h1 {
+  max-width: none;
+  margin: 0 0 34px;
+  color: #2d2d2d;
+  font: 800 clamp(28px, 3.5vw, 50px)/1.05 'Syne', sans-serif;
+  letter-spacing: -.055em;
+}
+
+/* Base del tocadiscos */
+
+.ett-deck {
+  --ett-accent: #1db954;
+  position: relative;
+  isolation: isolate;
+  container-type: inline-size;
+  width: 100%;
+  aspect-ratio: 1.45;
+  border: 1px solid #b18c64;
+  border-radius: 22px;
+  background-color: #c7a578;
+  background-image:
+    repeating-linear-gradient(
+      2deg,
+      #77502713 0 1px,
+      transparent 1px 6px
+    ),
+    repeating-linear-gradient(
+      178deg,
+      transparent 0 9px,
+      #f8e8ca38 10px 12px,
+      transparent 13px 25px
+    ),
+    linear-gradient(
+      110deg,
+      #edcf9f80,
+      transparent 40%,
+      #7d512333
+    );
+  box-shadow:
+    inset 0 2px 2px #fff7,
+    inset 0 -7px 4px #4d2d1a38,
+    0 15px 18px -12px #0007;
+}
+
+.ett-deck--claro {
+  border-color: #b6b6b6;
+  background: linear-gradient(135deg, #f2f2ef, #d7d7d3);
+  box-shadow:
+    inset 0 2px 2px #fff9,
+    inset 0 -7px 4px #0001,
+    0 15px 18px -12px #0007;
+}
+
+.ett-deck--oscuro {
+  border-color: #575757;
+  background: linear-gradient(130deg, #454545, #252525);
+  box-shadow:
+    inset 0 2px 2px #fff2,
+    inset 0 -7px 4px #0005,
+    0 15px 18px -12px #0007;
+}
+
+.ett-foot {
+  position: absolute;
+  z-index: -1;
+  bottom: -2%;
+  width: 8%;
+  height: 5%;
+  border-radius: 0 0 8px 8px;
+  background: linear-gradient(90deg, #171817, #454545, #171817);
+}
+
+.ett-foot--left {
+  left: 5%;
+}
+
+.ett-foot--right {
+  right: 5%;
+}
+
+.ett-mat {
+  position: absolute;
+  top: 4%;
+  left: 3%;
+  width: 62%;
+  height: 85%;
+  background: linear-gradient(130deg, #383838, #171817);
+  border: 1px solid #171817;
+  border-radius: 12px;
+  box-shadow: inset 0 1px 4px #0008;
+}
+
+/* Vinilo: textura original con surcos y reflejos */
+
+.ett-record {
+  position: absolute;
+  z-index: 2;
+  top: 5%;
+  left: 4.5%;
+  width: 59%;
+  aspect-ratio: 1;
+  overflow: hidden;
+  border-radius: 50%;
+  border: 1px solid #151515;
+  background: #1b1b1b;
+  box-shadow:
+    0 1px 0 1px #454545,
+    0 6px 10px #0008;
+}
+
+.ett-record-texture {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  pointer-events: none;
+  user-select: none;
+}
+
+.ett-label {
+  position: absolute;
+  top: 33%;
+  left: 33%;
+  width: 34%;
+  height: 34%;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 10%;
+  border-radius: 50%;
+  color: #e9e9e9;
+  background: #242424;
+  border: 1px solid #4b4b4b;
+  animation: ett-spin 14s linear infinite;
+}
+
+.ett-label strong {
+  position: absolute;
+  top: 28%;
+  font: 700 clamp(7px, 2.5cqw, 28px)/1 'Syne', sans-serif;
+  letter-spacing: -.05em;
+}
+
+.ett-label-dot {
+  position: absolute;
+  top: 15%;
+  width: 6%;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  background: var(--ett-accent);
+}
+
+.ett-label-side {
+  position: absolute;
+  bottom: 14%;
+  font: clamp(4px, .7cqw, 8px) 'DM Mono', monospace;
+  letter-spacing: .06em;
+}
+
+.ett-spindle {
+  position: absolute;
+  z-index: 2;
+  top: 48.6%;
+  left: 48.6%;
+  width: 2.8%;
+  height: 2.8%;
+  border-radius: 50%;
+  background:
+    radial-gradient(circle at 35% 30%, #eee, #858585 65%, #333);
+  box-shadow: 1px 2px 3px #0008;
+}
+
+.ett-artwork {
+  display: block;
+  width: 70px;
+  height: 70px;
+  flex-shrink: 0;
+  object-fit: contain;
+  border-radius: 4px;
+}
+
+.ett-song-meta {
+  flex: 1;
+}
+
+/* Brazo, pivote y aguja */
+
+.ett-pivot {
+  position: absolute;
+  top: 8%;
+  left: 72%;
+  width: 17%;
+  aspect-ratio: 1;
+  border: 3px solid #252525;
+  border-radius: 50%;
+  background:
+    radial-gradient(
+      circle,
+      #686868 0 20%,
+      #303030 22% 45%,
+      #575757 47% 50%,
+      #252525 53%
+    );
+  box-shadow: 3px 5px 8px #0005;
+}
+
+.ett-pivot span {
+  position: absolute;
+  inset: 35%;
+  border-radius: 50%;
+  background: #171817;
+  border: 1px solid #858585;
+}
+
+.ett-arm {
+  position: absolute;
+  z-index: 4;
+  left: 79.5%;
+  top: 20%;
+  width: 2%;
+  height: 49%;
+  transform-origin: 50% 0;
+  transform: rotate(-5deg);
+  transition: transform .8s ease;
+  filter: drop-shadow(3px 4px 2px #0005);
+}
+
+.ett-arm--playing {
+  transform: rotate(34deg);
+}
+
+.ett-arm-tube {
+  position: absolute;
+  inset: 0;
+  border: 1px solid #1c1c1c;
+  border-radius: 5px;
+  background:
+    linear-gradient(90deg, #202020, #858585 28%, #454545 48%, #202020);
+}
+
+.ett-counterweight {
+  position: absolute;
+  z-index: 2;
+  top: -17%;
+  left: -85%;
+  width: 270%;
+  height: 25%;
+  border: 1px solid #252525;
+  border-radius: 5px;
+  background: linear-gradient(90deg, #252525, #737373, #252525);
+}
+
+.ett-cartridge {
+  position: absolute;
+  bottom: -14%;
+  left: -60%;
+  width: 220%;
+  height: 19%;
+  border: 1px solid #858585;
+  border-radius: 3px;
+  background: linear-gradient(90deg, #171817, #454545);
+}
+
+.ett-cartridge::after {
+  content: '';
+  position: absolute;
+  bottom: -12%;
+  left: 30%;
+  width: 40%;
+  height: 15%;
+  background: var(--ett-accent);
+}
+
+.ett-arm-rest {
+  position: absolute;
+  top: 62%;
+  left: 80%;
+  width: 7%;
+  height: 3%;
+  background: #292929;
+  border: 1px solid #858585;
+  border-radius: 4px;
+}
+
+/* Stickers y placa */
+
+.ett-stickers {
+  position: absolute;
+  top: 42%;
+  right: 4%;
+  width: 23%;
+  height: 26%;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  align-items: center;
+  justify-items: center;
+  gap: 3%;
+}
+
+.ett-sticker {
+  display: grid;
+  place-items: center;
+  width: 75%;
+  aspect-ratio: 1;
+  color: #2d2d2d;
+  filter: drop-shadow(1px 2px 1px #0004);
+}
+
+.ett-sticker svg {
+  width: 100%;
+  height: 100%;
+  stroke-width: 2;
+  stroke: currentColor;
+  fill: #e9e9e9;
+}
+
+.ett-sticker--estrella {
+  transform: rotate(-13deg);
+}
+
+.ett-sticker--rayo {
+  transform: rotate(12deg);
+  color: var(--ett-accent);
+}
+
+.ett-sticker--corazon {
+  transform: rotate(-8deg);
+}
+
+.ett-sticker--musica {
+  transform: rotate(12deg);
+  color: var(--ett-accent);
+}
+
+.ett-nameplate {
+  position: absolute;
+  right: 4%;
+  top: 71%;
+  width: 27%;
+  min-height: 6%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 3px;
+  padding: 1% 1.2%;
+  border: 1px solid #858585;
+  border-radius: 3px;
+  background: linear-gradient(135deg, #e9e9e9, #aaa);
+  box-shadow: 1px 2px 3px #0003;
+  color: #2d2d2d;
+  font: 500 clamp(6px, 1.25cqw, 12px) 'DM Mono', monospace;
+}
+
+.ett-nameplate strong {
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-weight: 500;
+}
+
+.ett-nameplate > span {
+  flex-shrink: 0;
+  color: #575757;
+}
+
+/* Pantalla y controles físicos */
+
+.ett-display {
+  position: absolute;
+  bottom: 3.5%;
+  left: 5%;
+  width: 52%;
+  height: 7%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 2px;
+  padding: 1% 2%;
+  border: 1px solid #575757;
+  border-radius: 4px;
+  color: #e9e9e9;
+  background: #222;
+  font: clamp(6px, 1.3cqw, 12px)/1.2 'DM Mono', monospace;
+}
+
+.ett-display > * {
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.ett-display strong {
+  font-weight: 500;
+}
+
+.ett-display > span {
+  color: #b6b6b6;
+  font-size: .85em;
+}
+
+.ett-hardware {
+  position: absolute;
+  right: 4%;
+  bottom: 3.5%;
+  width: 32%;
+  height: 17%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 5%;
+  padding: 2% 1% 1%;
+  background: linear-gradient(120deg, #383838, #202020);
+  border: 1px solid #171817;
+  border-radius: 7px;
+}
+
+.ett-light {
+  position: absolute;
+  top: 8%;
+  left: 49%;
+  width: 3%;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  background: #575757;
+}
+
+.ett-light--on {
+  background: var(--ett-accent);
+  box-shadow: 0 0 6px var(--ett-accent);
+}
+
+.ett-buttons {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: clamp(5px, 1.2cqw, 12px);
+}
+
+.ett-hardware-button {
+  display: grid;
+  place-items: center;
+  flex-shrink: 0;
+  width: clamp(26px, 5.2cqw, 48px);
+  height: clamp(26px, 5.2cqw, 48px);
+  padding: 0;
+  border: 1px solid #101010;
+  border-radius: 50%;
+  background: linear-gradient(#484848, #2a2a2a);
+  box-shadow:
+    inset 0 1px #ffffff40,
+    0 2px 3px #0006;
+  color: #e9e9e9;
+}
+
+.ett-hardware-button svg {
+  width: 42%;
+  height: 42%;
+}
+
+button.ett-hardware-button:hover:not(:disabled) {
+  color: var(--ett-accent, #1db954);
+}
+
+button.ett-hardware-button:active:not(:disabled) {
+  box-shadow: inset 0 2px 4px #0007;
+}
+
+.ett-hardware-label {
+  color: #b6b6b6;
+  font: clamp(5px, .8cqw, 8px) 'DM Mono', monospace;
+  letter-spacing: .1em;
+}
+
+/* Canción actual */
+
+.ett-now {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  margin-top: 36px;
+}
+
+.ett-now > div {
+  min-width: 0;
+}
+
+.ett-now h2 {
+  margin: 0 0 6px;
+  font: 700 23px/1.2 'Syne', sans-serif;
+  letter-spacing: -.03em;
+  overflow-wrap: anywhere;
+}
+
+.ett-now p {
+  margin: 0;
+  color: #575757;
+  font-size: 13px;
+  line-height: 1.5;
+  overflow-wrap: anywhere;
+}
+
+.ett-status {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  flex-shrink: 0;
+  color: #575757;
+  font: 9px 'DM Mono', monospace;
+}
+
+.ett-status i {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #858585;
+}
+
+.ett-status i.ett-status--on {
+  background: #1db954;
+}
+
+.ett-mobile-controls {
+  display: none;
+  margin-top: 22px;
+}
+
+/* Panel de personalización */
+
+.ett-editor {
+  min-width: 0;
+  padding: 28px 24px;
+  border-left: 1px solid #b6b6b6;
+}
+
+.ett-editor h2 {
+  margin: 0 0 26px;
+  font: 700 30px/1.05 'Syne', sans-serif;
+  letter-spacing: -.045em;
+}
+
+.ett-editor fieldset {
+  min-width: 0;
+  margin: 0 0 22px;
+  padding: 0;
+  border: 0;
+}
+
+.ett-editor legend,
+.ett-input-label {
+  display: block;
+  width: 100%;
+  margin-bottom: 10px;
+  padding: 0;
+  color: #2d2d2d;
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.ett-materials {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 8px;
+}
+
+.ett-materials button {
+  min-width: 0;
+  padding: 5px 5px 8px;
+  border: 1px solid #b6b6b6;
+  border-radius: 6px;
+  background: transparent;
+  color: #2d2d2d;
+  font-size: 10px;
+}
+
+.ett-materials button[aria-pressed='true'],
+.ett-sticker-options button[aria-pressed='true'] {
+  border-color: #16883f;
+  box-shadow: 0 0 0 1px #1db954;
+}
+
+.ett-material {
+  display: block;
+  width: 100%;
+  height: 48px;
+  margin-bottom: 7px;
+  border-radius: 3px;
+}
+
+.ett-material--madera {
+  background:
+    repeating-linear-gradient(
+      2deg,
+      #77502718 0 1px,
+      transparent 1px 5px
+    ),
+    linear-gradient(110deg, #d7b78b, #be965e);
+}
+
+.ett-material--claro {
+  background: linear-gradient(130deg, #fafaf7, #d7d7d3);
+  border: 1px solid #ccc;
+}
+
+.ett-material--oscuro {
+  background: linear-gradient(130deg, #454545, #252525);
+}
+
+.ett-swatches {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  flex-wrap: wrap;
+  padding: 3px;
+}
+
+.ett-swatch,
+.ett-accent {
+  display: grid;
+  place-items: center;
+  width: 44px;
+  height: 44px;
+  padding: 0;
+  border: 1px solid #858585;
+  border-radius: 50%;
+}
+
+.ett-swatch {
+  background: #202020;
+  box-shadow:
+    inset 3px 3px 7px #ffffff20,
+    inset -3px -3px 6px #0005;
+}
+
+.ett-swatch--humo {
+  background: #9ba09d;
+}
+
+.ett-swatch--verde {
+  background: #155a36;
+}
+
+.ett-swatch--vino {
+  background: #5f202b;
+}
+
+.ett-swatch > span {
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: #b6b6b6;
+}
+
+.ett-swatch[aria-pressed='true'],
+.ett-accent[aria-pressed='true'] {
+  outline: 2px solid #16883f;
+  outline-offset: 3px;
+}
+
+.ett-accent svg {
+  width: 20px;
+  height: 20px;
+}
+
+.ett-input {
+  display: block;
+  width: 100%;
+  min-height: 44px;
+  margin: 0 0 22px;
+  padding: 10px 12px;
+  border: 1px solid #b6b6b6;
+  border-radius: 5px;
+  color: #2d2d2d;
+  background: transparent;
+  font: 13px 'Inter', sans-serif;
+}
+
+.ett-sticker-options {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 8px;
+}
+
+.ett-sticker-options button {
+  display: grid;
+  place-items: center;
+  min-width: 0;
+  min-height: 48px;
+  padding: 8px;
+  border: 1px solid #b6b6b6;
+  border-radius: 5px;
+  background: transparent;
+  color: #2d2d2d;
+}
+
+.ett-sticker-options svg {
+  width: 25px;
+  height: 25px;
+}
+
+.ett-save {
+  width: 100%;
+}
+
+.ett-save-status {
+  margin: 12px 0 0;
+  min-height: 30px;
+  color: #575757;
+  text-align: center;
+  font-size: 11px;
+  line-height: 1.5;
+}
+
+.ett-message {
+  margin: 16px 0;
+  color: #575757;
+  font-size: 13px;
+  line-height: 1.6;
+}
+
+/* Paleta y acabado */
+
+.ett-segmented {
+  display: flex;
+  padding: 3px;
+  gap: 3px;
+  border: 1px solid #b6b6b6;
+  border-radius: 7px;
+}
+
+.ett-segmented button {
+  flex: 1;
+  min-width: 0;
+  min-height: 44px;
+  padding: 8px 6px;
+  border: 0;
+  border-radius: 4px;
+  background: transparent;
+  color: #575757;
+  font-size: 12px;
+}
+
+.ett-segmented button[aria-pressed='true'] {
+  background: #1db954;
+  color: #14241a;
+  font-weight: 600;
+}
+
+.ett-color-help {
+  margin: 10px 0 16px;
+  color: #575757;
+  font-size: 11px;
+  line-height: 1.6;
+}
+
+.ett-palette-title {
+  margin: 18px 0 10px;
+  color: #2d2d2d;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.ett-palette-color {
+  display: grid;
+  place-items: center;
+  width: 44px;
+  height: 44px;
+  padding: 0;
+  border: 1px solid #858585;
+  border-radius: 50%;
+}
+
+.ett-palette-color[aria-pressed='true'] {
+  outline: 2px solid #16883f;
+  outline-offset: 3px;
+}
+
+.ett-color-check {
+  display: grid;
+  place-items: center;
+  width: 23px;
+  height: 23px;
+  border-radius: 50%;
+  background: #2d2d2d;
+  color: #fff;
+  border: 1px solid #e9e9e9;
+}
+
+.ett-color-check svg {
+  width: 16px;
+  height: 16px;
+}
+
+.ett-color-code {
+  margin: 14px 0 18px;
+  color: #575757;
+  font: 11px/1.6 'DM Mono', monospace;
+}
+
+/* Compartir y exportar */
+
+.ett-share {
+  width: min(580px, calc(100vw - 32px));
+  max-height: calc(100dvh - 32px);
+  margin: auto;
+  padding: 20px;
+  overflow-y: auto;
+  border: 1px solid #858585;
+  border-radius: 10px;
+}
+
+.ett-share-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 18px;
+}
+
+.ett-share-head h2 {
+  margin: 0;
+  font: 700 24px/1.15 'Syne', sans-serif;
+  letter-spacing: -.035em;
+}
+
+.ett-share-preview {
+  display: block;
+  width: 100%;
+  height: auto;
+  border: 1px solid #b6b6b6;
+}
+
+.ett-share-actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 18px;
+}
+
+.ett-export {
+  position: fixed;
+  left: -10000px;
+  top: 0;
+  width: 900px;
+  padding: 48px;
+  pointer-events: none;
+}
+
+.ett-export-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-bottom: 24px;
+  border-bottom: 1px solid #b6b6b6;
+}
+
+.ett-export-head > span:last-child {
+  font: 11px 'DM Mono', monospace;
+  letter-spacing: .12em;
+}
+
+.ett-export > h2 {
+  margin: 32px 0 10px;
+  font: 700 42px/1.1 'Syne', sans-serif;
+  letter-spacing: -.04em;
+  overflow-wrap: anywhere;
+}
+
+.ett-export-user {
+  margin: 0 0 34px;
+  color: #575757;
+  font-size: 14px;
+}
+
+.ett-export .ett-arm {
+  transform: rotate(34deg);
+}
+
+.ett-export .ett-label {
+  animation: none;
+}
+
+.ett-export .ett-mat {
+  box-shadow: none;
+}
+
+.ett-export-song {
+  display: flow-root;
+  margin-top: 42px;
+  padding-top: 22px;
+  border-top: 2px solid #1db954;
+}
+
+.ett-export-song .ett-artwork {
+  float: left;
+  margin: 0 20px 12px 0;
+  width: 100px;
+  height: 100px;
+}
+
+.ett-export-song > span {
+  color: #575757;
+  font: 10px 'DM Mono', monospace;
+  letter-spacing: .1em;
+}
+
+.ett-export-song h3 {
+  margin: 12px 0 8px;
+  font: 700 32px/1.2 'Syne', sans-serif;
+  overflow-wrap: anywhere;
+}
+
+.ett-export-song p {
+  margin: 0;
+  color: #575757;
+  font-size: 16px;
+  overflow-wrap: anywhere;
+}
+
+.ett-label img {
+  position: absolute;
+  inset: 0;
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 50%;
+  pointer-events: none;
+  user-select: none;
+}
+
+@keyframes ett-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Adaptación a pantallas pequeñas */
+
+@media (max-width: 1000px) {
+  .ett-topbar-label {
+    display: none;
+  }
+
+  .ett-layout {
+    grid-template-columns: minmax(0, 1fr) 280px;
+  }
+
+  .ett-layout--solo {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .ett-editor {
+    padding: 24px 18px;
+  }
+
+  .ett-preview {
+    padding-inline: 22px;
+  }
+
+  .ett-status {
+    display: none;
+  }
+}
+
+@media (max-width: 800px) {
+  .ett-layout {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .ett-editor {
+    border-left: 0;
+    border-top: 1px solid #b6b6b6;
+  }
+
+  .ett-editor h2 br {
+    display: none;
+  }
+
+  .ett-material {
+    height: 64px;
+  }
+
+  .ett-now h2 {
+    font-size: 21px;
+  }
+}
+
+@media (max-width: 600px) {
+  .ett-studio {
+    width: calc(100vw - 16px);
+    max-height: calc(100dvh - 16px);
+    border-radius: 8px;
+  }
+
+  .ett-studio--page {
+    max-height: none;
+    margin: 8px auto;
+  }
+
+  .ett-topbar {
+    min-height: 64px;
+    gap: 8px;
+    padding: 10px 12px;
+  }
+
+  .ett-topbar-actions {
+    gap: 4px;
+  }
+
+  .ett-topbar-actions .ett-button {
+    width: 40px;
+    min-height: 44px;
+    padding: 8px;
+  }
+
+  .ett-topbar-actions .ett-button > span {
+    display: none;
+  }
+
+  .ett-brand > span {
+    font-size: 22px;
+  }
+
+  .ett-brand > svg {
+    width: 24px;
+    height: 24px;
+  }
+
+  .ett-preview {
+    padding: 24px 16px;
+  }
+
+  .ett-preview h1 {
+    font-size: clamp(26px, 6vw, 36px);
+    margin-bottom: 26px;
+  }
+
+  .ett-eyebrow {
+    font-size: 8px;
+    letter-spacing: .08em;
+  }
+
+  .ett-deck {
+    border-radius: 12px;
+  }
+
+  .ett-preview .ett-hardware .ett-buttons {
+    visibility: hidden;
+  }
+
+  .ett-mobile-controls {
+    display: block;
+  }
+
+  .ett-mobile-controls .ett-buttons {
+    gap: 24px;
+  }
+
+  .ett-mobile-controls .ett-hardware-button {
+    width: 48px;
+    height: 48px;
+  }
+
+  .ett-now {
+    margin-top: 28px;
+  }
+
+  .ett-now h2 {
+    font-size: 20px;
+  }
+
+  .ett-editor {
+    padding: 24px 20px;
+  }
+
+  .ett-editor h2 {
+    font-size: 28px;
+  }
+
+  .ett-input {
+    font-size: 16px;
+  }
+
+  .ett-share {
+    padding: 16px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ett-label {
+    animation: none;
+  }
+
+  .ett-arm {
+    transition: none;
+  }
+}

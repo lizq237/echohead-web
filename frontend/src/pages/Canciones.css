@@ -1,0 +1,331 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Inter:wght@400;500;600;700&family=Syne:wght@500;600;700;800&display=swap');
+
+.eh-songs {
+  min-height: 100svh;
+  background: #e9e9e9;
+  color: #2d2d2d;
+  font-family: 'Inter', sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+.eh-songs *,
+.eh-songs *::before,
+.eh-songs *::after {
+  box-sizing: border-box;
+}
+
+.eh-songs-main {
+  max-width: 1320px;
+  margin: 0 auto;
+  padding: 40px 48px 64px;
+}
+
+.eh-songs-heading h1 {
+  margin: 0;
+  color: #2d2d2d;
+  font: 800 clamp(38px, 5vw, 60px) / 1.1 'Syne', sans-serif;
+  letter-spacing: -.055em;
+}
+
+.eh-songs-heading p {
+  margin: 14px 0 0;
+  color: #575757;
+  font-size: 15px;
+  line-height: 1.6;
+}
+
+/* Buscador */
+
+.eh-songs-search {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  min-height: 64px;
+  margin: 28px 0 40px;
+  padding: 8px 8px 8px 20px;
+  border: 1px solid #b6b6b6;
+  border-radius: 6px;
+  background: #f3f3f3;
+}
+
+.eh-songs-search:focus-within {
+  border-color: #2d2d2d;
+  box-shadow: 0 0 0 1px #2d2d2d;
+}
+
+.eh-songs-search > svg {
+  flex-shrink: 0;
+  width: 21px;
+  height: 21px;
+}
+
+.eh-songs-search input {
+  width: 100%;
+  min-width: 0;
+  padding: 8px 0;
+  border: 0;
+  outline: none;
+  background: transparent;
+  color: #2d2d2d;
+  font: 16px 'Inter', sans-serif;
+}
+
+.eh-songs-search input::placeholder {
+  color: #575757;
+  opacity: 1;
+}
+
+.eh-songs-search input::-webkit-search-cancel-button {
+  -webkit-appearance: none;
+}
+
+.eh-songs button {
+  font-family: 'Inter', sans-serif;
+  cursor: pointer;
+}
+
+.eh-songs button:disabled {
+  cursor: default;
+}
+
+.eh-songs-clear {
+  display: grid;
+  place-items: center;
+  flex-shrink: 0;
+  width: 40px;
+  height: 44px;
+  border: 0;
+  background: transparent;
+  color: #575757;
+}
+
+.eh-songs-submit {
+  align-self: stretch;
+  min-height: 46px;
+  padding: 0 28px;
+  border: 0;
+  border-radius: 4px;
+  background: #1db954;
+  color: #14241a;
+  font-size: 14px;
+  font-weight: 700;
+}
+
+.eh-songs-submit:hover {
+  background: #25cd65;
+}
+
+.eh-songs :is(button, a):focus-visible {
+  outline: 2px solid #2d2d2d;
+  outline-offset: 4px;
+}
+
+/* Encabezado de resultados */
+
+.eh-songs-section-heading {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 20px;
+  margin-bottom: 24px;
+}
+
+.eh-songs-section-heading h2 {
+  margin: 0;
+  font: 700 clamp(22px, 2.4vw, 28px) / 1.3 'Syne', sans-serif;
+  letter-spacing: -.035em;
+  overflow-wrap: anywhere;
+}
+
+.eh-songs-section-heading > button {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-shrink: 0;
+  min-height: 44px;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  color: #575757;
+  font-size: 12px;
+}
+
+/* Cuadrícula de canciones */
+
+.eh-songs-grid {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: 32px 24px;
+}
+
+.eh-songs-grid > * {
+  min-width: 0;
+}
+
+/*
+  Mantiene las portadas circulares y evita que los
+  tamaños globales antiguos de Perfil las deformen.
+*/
+
+.eh-songs .eh-card--catalogo .tarjeta-contenedor {
+  width: 100% !important;
+  height: auto !important;
+  aspect-ratio: 1;
+  border-radius: 50% !important;
+}
+
+.eh-songs .eh-card--catalogo .tarjeta-imagen {
+  width: 100% !important;
+  height: 100% !important;
+  border-radius: 50%;
+}
+
+/* Estados de carga, error y búsqueda vacía */
+
+.eh-songs-message {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 14px;
+  padding: 64px 24px;
+  border: 1px solid #b6b6b6;
+  text-align: center;
+  color: #575757;
+  font-size: 14px;
+  line-height: 1.7;
+}
+
+.eh-songs-message h3 {
+  margin: 0;
+  color: #2d2d2d;
+  font: 700 24px 'Syne', sans-serif;
+}
+
+.eh-songs-message p,
+.eh-songs-notice p {
+  margin: 0;
+}
+
+.eh-songs-message button,
+.eh-songs-notice button {
+  min-height: 44px;
+  padding: 8px 16px;
+  border: 1px solid #858585;
+  border-radius: 4px;
+  background: transparent;
+  color: #2d2d2d;
+}
+
+.eh-songs-notice {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  margin: 0 0 24px;
+  padding: 14px 16px;
+  border-left: 2px solid #858585;
+  background: #f3f3f3;
+  color: #575757;
+  font-size: 12px;
+  line-height: 1.6;
+}
+
+.eh-songs-spinner {
+  width: 24px;
+  height: 24px;
+  border: 2px solid #b6b6b6;
+  border-top-color: #2d2d2d;
+  border-radius: 50%;
+  animation: eh-songs-spin .8s linear infinite;
+}
+
+@keyframes eh-songs-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Footer existente, con el mismo acabado de Álbumes */
+
+body:has(.eh-songs) .footer-echohead {
+  margin-top: 0;
+  padding: 28px 24px;
+  background: #e9e9e9;
+  border-top: 1px solid #b6b6b6;
+  font-family: 'Inter', sans-serif;
+}
+
+body:has(.eh-songs) .footer-echohead :is(a, p) {
+  color: #575757;
+  font-size: 12px;
+}
+
+/* Adaptación a tablet y móvil */
+
+@media (max-width: 1100px) {
+  .eh-songs-main {
+    padding-inline: 28px;
+  }
+
+  .eh-songs-grid {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 28px 20px;
+  }
+}
+
+@media (max-width: 760px) {
+  .eh-songs-main {
+    padding: 30px 20px 48px;
+  }
+
+  .eh-songs-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 26px 16px;
+  }
+
+  .eh-songs-section-heading {
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .eh-songs-notice {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
+
+@media (max-width: 540px) {
+  .eh-songs-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .eh-songs-search {
+    gap: 8px;
+    padding-left: 12px;
+    margin-bottom: 30px;
+  }
+
+  .eh-songs-submit {
+    padding-inline: 14px;
+  }
+
+  .eh-songs-clear {
+    width: 30px;
+  }
+
+  .eh-songs-search > svg {
+    width: 18px;
+  }
+}
+
+@media (max-width: 380px) {
+  .eh-songs-main {
+    padding-inline: 16px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .eh-songs-spinner {
+    animation: none;
+  }
+}

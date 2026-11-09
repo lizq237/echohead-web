@@ -1,0 +1,366 @@
+.eap-collection {
+  width: 100%;
+  min-width: 0;
+  color: #2d2d2d;
+  font-family: 'Inter', sans-serif;
+}
+
+.eap-collection *,
+.eap-collection *::before,
+.eap-collection *::after {
+  box-sizing: border-box;
+}
+
+/* Encabezado y filtros */
+
+.eap-toolbar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 20px;
+  margin-bottom: 28px;
+}
+
+.eap-heading h2 {
+  display: flex;
+  align-items: baseline;
+  gap: 12px;
+  margin: 0;
+  font: 700 28px/1.2 'Syne', sans-serif;
+  letter-spacing: -0.035em;
+}
+
+.eap-heading h2 > span {
+  color: #575757;
+  font: 12px 'DM Mono', monospace;
+  letter-spacing: normal;
+}
+
+.eap-heading p {
+  margin: 8px 0 0;
+  color: #575757;
+  font-size: 12px;
+  line-height: 1.6;
+}
+
+.eap-tools {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  gap: 12px;
+  min-width: 0;
+}
+
+.eap-search {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  width: 220px;
+  min-height: 44px;
+  padding: 0 12px;
+  border: 1px solid #b6b6b6;
+  border-radius: 4px;
+}
+
+.eap-search > svg {
+  flex-shrink: 0;
+}
+
+.eap-search input {
+  width: 100%;
+  min-width: 0;
+  padding: 10px 0;
+  border: 0;
+  background: transparent;
+  color: #2d2d2d;
+  font: 13px 'Inter', sans-serif;
+}
+
+.eap-search input::placeholder {
+  color: #575757;
+}
+
+.eap-search input::-webkit-search-cancel-button {
+  -webkit-appearance: none;
+}
+
+.eap-search button {
+  display: grid;
+  place-items: center;
+  flex-shrink: 0;
+  width: 28px;
+  height: 40px;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  color: #575757;
+  cursor: pointer;
+}
+
+.eap-select {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  color: #575757;
+  font-size: 11px;
+}
+
+.eap-select select {
+  min-height: 44px;
+  max-width: 100%;
+  padding: 8px 12px;
+  border: 1px solid #b6b6b6;
+  border-radius: 4px;
+  background: #e9e9e9;
+  color: #2d2d2d;
+  font: 12px 'Inter', sans-serif;
+}
+
+.eap-collection :is(button, select, input, figure):focus-visible {
+  outline: 2px solid #2d2d2d;
+  outline-offset: 3px;
+}
+
+.eap-results {
+  margin: 0 0 20px;
+  color: #575757;
+  font: 11px 'DM Mono', monospace;
+}
+
+/* Portadas */
+
+.eap-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  gap: 28px 20px;
+}
+
+.eap-album {
+  position: relative;
+  min-width: 0;
+  margin: 0;
+}
+
+.eap-album:hover,
+.eap-album:focus-within {
+  z-index: 2;
+}
+
+.eap-album .eh-card .tarjeta-contenedor {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 1;
+  border-radius: 0;
+  box-shadow: none;
+}
+
+.eap-album .eh-card .tarjeta-imagen {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  border-radius: 0;
+}
+
+/* Solo el menú de tres puntos debajo de la portada */
+
+.eap-album .eh-card-caption {
+  position: relative;
+  justify-content: flex-end;
+  min-height: 44px;
+  padding-top: 8px;
+}
+
+.eap-album .eh-card-caption > div {
+  display: none;
+}
+
+.eap-album .eh-card-more {
+  width: 36px;
+  height: 36px;
+}
+
+/* Calificación y favorito, junto al menú */
+
+.eap-meta {
+  position: relative;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 5px;
+
+  width: calc(100% - 44px);
+  min-height: 36px;
+  margin-top: -36px;
+
+  color: #2d2d2d;
+}
+
+.eap-stars {
+  display: inline-flex;
+  align-items: center;
+  gap: 2px;
+  color: #2d2d2d;
+}
+
+.eap-stars svg {
+  width: 12px;
+  height: 12px;
+  flex-shrink: 0;
+}
+
+.eap-heart {
+  display: inline-flex;
+  color: #2d2d2d;
+}
+
+.eap-heart svg {
+  width: 13px;
+  height: 13px;
+}
+
+/* Nombre al pasar el cursor o usar el teclado */
+
+.eap-tooltip {
+  position: absolute;
+  z-index: 3;
+  bottom: calc(100% + 8px);
+  left: 0;
+  max-width: 100%;
+  padding: 7px 9px;
+  border-radius: 4px;
+
+  background: #2d2d2d;
+  color: #e9e9e9;
+  font: 11px/1.5 'Inter', sans-serif;
+  overflow-wrap: anywhere;
+
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+
+.eap-album:hover .eap-tooltip,
+.eap-album:focus-within .eap-tooltip {
+  opacity: 1;
+  visibility: visible;
+}
+
+/* Mensajes y paginación */
+
+.eap-state {
+  padding: 40px 20px;
+  border: 1px solid #b6b6b6;
+  color: #575757;
+  font: 13px/1.7 'Inter', sans-serif;
+  text-align: center;
+}
+
+.eap-state h3 {
+  margin: 0 0 12px;
+  color: #2d2d2d;
+  font: 700 22px 'Syne', sans-serif;
+}
+
+.eap-state p {
+  margin: 0 0 16px;
+}
+
+.eap-state button,
+.eap-pagination button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+
+  min-height: 44px;
+  padding: 8px 12px;
+  border: 1px solid #b6b6b6;
+  border-radius: 4px;
+
+  background: transparent;
+  color: #2d2d2d;
+  font: 12px 'Inter', sans-serif;
+  cursor: pointer;
+}
+
+.eap-state button:hover,
+.eap-pagination button:hover:not(:disabled) {
+  background: #dedede;
+}
+
+.eap-pagination {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  margin-top: 32px;
+}
+
+.eap-pagination > span {
+  color: #575757;
+  font: 12px 'DM Mono', monospace;
+}
+
+.eap-pagination button:disabled {
+  opacity: 0.45;
+  cursor: default;
+}
+
+.eap-sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+  border: 0;
+}
+
+@media (max-width: 800px) {
+  .eap-tools {
+    width: 100%;
+  }
+
+  .eap-search {
+    flex: 1 1 220px;
+  }
+}
+
+@media (max-width: 540px) {
+  .eap-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 24px 12px;
+  }
+
+  .eap-search {
+    flex-basis: 100%;
+    width: 100%;
+  }
+
+  .eap-search input {
+    font-size: 16px;
+  }
+
+  .eap-select {
+    flex: 1 1 0;
+    min-width: 0;
+  }
+
+  .eap-select select {
+    width: 100%;
+    padding-inline: 8px;
+  }
+
+  .eap-stars {
+    gap: 1px;
+  }
+
+  .eap-stars svg {
+    width: 11px;
+    height: 11px;
+  }
+}
