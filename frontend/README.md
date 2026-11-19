@@ -1,16 +1,30 @@
-# React + Vite
+# EchoHead — Frontend
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Interfaz web de **EchoHead**, una plataforma musical para registrar, calificar y reseñar álbumes y canciones.
 
-Currently, two official plugins are available:
+🌐 **[Probar la aplicación](https://echohead-web.pages.dev/)** · 📖 **[README principal: producto, recorrido para reclutadores e instalación](../README.md)**
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## Tecnologías
 
-## React Compiler
+React 19, Vite 8, JavaScript, CSS, React Router, React Icons y html2canvas.
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## Desarrollo local
 
-## Expanding the ESLint configuration
+El frontend requiere el backend de EchoHead en el puerto `8888`. Revisa primero el [README principal](../README.md) para configurar PostgreSQL y la API.
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+```bash
+cd frontend
+npm ci
+npm run dev
+```
+
+Abre `http://localhost:5173`. Vite usa el proxy `/backend` hacia `http://127.0.0.1:8888`. El proyecto también incluye:
+
+```bash
+npm run build
+npm run lint
+```
+
+La autenticación propia y el catálogo MusicBrainz no requieren conectar Spotify. El acceso directo a Spotify es opcional y está sujeto a los usuarios autorizados de la beta.
+
+> Proyecto personal en desarrollo de Lizeth Quiroz Urias. Para funcionalidades, demostración y documentación completa, consulta el [README de la raíz](../README.md).
